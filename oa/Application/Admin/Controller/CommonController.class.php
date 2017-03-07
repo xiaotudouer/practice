@@ -34,14 +34,28 @@ class CommonController extends Controller
         $auths = C('RBAC_AUTHS');
         //获取用户的用户组id
         $roleid = session('role_id');
-        //取出当前用户的权限
+        $roles = M('roles');
+        $auth_ids = $roles->find(2);
+        $auth = M('auth')->where('auth_id in ('.$auth_ids['auth_ids'].')')->select();
+        $auth = array_column($auth, 'auth_path');
+        foreach ($auth as $key => $val) {
+            $auth[$key] = strtolower($val);
+        }
+        /*dump(strtolower($cname . '/' . $aname));
+        dump($auth);exit;*/
+        if($roleid != 1){
+            if(!in_array(strtolower($cname . '/' . $aname),$auth)){
+                $this -> error('您没有权限',U('Index/home'),3);
+            }
+        }
+       /* //取出当前用户的权限
         $auth = $auths['auth' . $roleid];
         //判断权限
         if($roleid != 1){
             if(!in_array($cname . '/*',$auth) && !in_array($cname . '/' . $aname,$auth)){
                 $this -> error('您没有权限',U('Index/home'),3);
             }
-        }
+        }*/
     }
 
 }

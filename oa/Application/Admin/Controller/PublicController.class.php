@@ -11,7 +11,7 @@ namespace Admin\Controller;
 
 use Think\Controller;
 
-class PublicController extends CommonController
+class PublicController extends Controller
 {
     //定义展示登录模板login方法
     public function login()
