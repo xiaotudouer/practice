@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>入门程序,使用jQuery实现点击按钮替换p标签里的内容为替换</title>
+    <script src="jquery-1.8.3.min.js"></script>
+    <style type="text/css" media="screen">
+
+    </style>
+    <script type="text/javascript">
+        //定义加载事件
+        window.onload = function () {
+            //绑定点击事件
+            document.getElementById('btn').onclick = function () {
+                $('p').html('测试');
+            }
+        }
+    </script>
+</head>
+<body>
+<p>师傅被妖怪抓走了</p>
+<hr/>
+<input type="butten" value="点击替换" id="btn"/>
+</body>
+</html>

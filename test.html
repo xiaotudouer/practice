@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>入门程序,使用jQuery实现div隐藏</title>
+    <script src="jquery-1.8.3.min.js"></script>
+    <style type="text/css" media="screen">
+        div{
+            width: 200px;
+            height: 200px;
+            background: red;
+        }
+    </style>
+    <script type="text/javascript">
+        //定义加载事件
+        window.onload = function () {
+            //绑定点击事件
+            document.getElementById('btn').onclick = function () {
+                $('div').hide(3000);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div></div>
+    <hr/>
+    <input type="butten" value="点击隐藏" id="btn"/>
+</body>
+</html>
